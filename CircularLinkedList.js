@@ -2,22 +2,24 @@ function CircularLinkedList() {
   this.head;
   this.count = 0;
 
-  var tail;
   this.add = (value) => {
-    var node = {
+    this.count++;
+    let node = {
       value: value,
       next: this.head
     };
-    if (this.count === 0) {
-      this.head = {};
-      this.head.value = value;
-      this.head.next = this.head;
-      tail = this.head;
-    } else {
-      tail.next = node;
-      tail = node;
+
+    let currentNode = this.head;
+    if (!currentNode) {
+      this.head = node;
+      node.next = this.head;
+      return;
     }
-    this.count++;
+
+    while (currentNode.next !== this.head) {
+      currentNode = currentNode.next;
+    }
+    currentNode.next = node;
   }
 
   this.findCircular = () => {
@@ -38,5 +40,8 @@ circularLinkedList.add(1);
 circularLinkedList.add(2);
 circularLinkedList.add(3);
 circularLinkedList.add(4);
+
+console.log(circularLinkedList.head);
 circularLinkedList.findCircular()
+
 module.exports = CircularLinkedList;
