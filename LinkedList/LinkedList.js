@@ -1,7 +1,6 @@
 function LinkList() {
   this.length = 0;
   this.head;
-  let tail;
   this.add = (value) => {
     let currentNode = this.head;
     let node = {
@@ -9,10 +8,9 @@ function LinkList() {
       next: null
     }
 
+    this.length++;
     if (!currentNode) {
       this.head = node;
-      this.length++;
-      tail = this.head;
       return node;
     }
 
@@ -20,12 +18,6 @@ function LinkList() {
       currentNode = currentNode.next;
     }
     currentNode.next = node;
-
-    /* In case of Remove Not Work */
-    // tail.next = node;
-    // tail = node;
-    // this.length++;
-
     return node;
   }
 
@@ -87,12 +79,12 @@ linkList1.add(1);
 linkList1.add(2);
 linkList1.add(3);
 linkList1.add(4);
-linkList1.display();
+// linkList1.display();
 
 linkList1.addAtPosition(0, 5);
-linkList1.display();
+// linkList1.display();
 
 linkList1.remove(2);
-linkList1.display();
+// linkList1.display();
 
 module.exports = LinkList;

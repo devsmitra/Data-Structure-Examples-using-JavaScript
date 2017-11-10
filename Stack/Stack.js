@@ -1,22 +1,22 @@
 class Stack {
-  constructor(length) {
-    this.length = 0;
-    this.max = length;
-    this.stack = new Array(length);
+  constructor(top) {
+    this.top = 0;
+    this.max = top;
+    this.stack = new Array(top);
   }
 
   push(data) {
     if (this.isFull()) {
       throw 'Stack is Full';
     }
-    this.stack[this.length] = data;
-    this.length++;
+    this.stack[this.top] = data;
+    this.top++;
     return data;
   }
 
   peek() {
     const data = this.peek();
-    this.length--;
+    this.top--;
     return data;
   }
 
@@ -24,16 +24,16 @@ class Stack {
     if (this.isEmpty()) {
       throw 'Stack is Empty';
     }
-    this.length--;
-    return this.stack[this.length];;
+    this.top--;
+    return this.stack[this.top];;
   }
 
   isFull() {
-    return this.max == this.length;
+    return this.max == this.top;
   }
 
   isEmpty() {
-    return 0 == this.length;
+    return 0 == this.top;
   }
 }
 // const stack = new Stack(10);

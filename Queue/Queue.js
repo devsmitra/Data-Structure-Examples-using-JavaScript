@@ -1,7 +1,7 @@
 class Queue {
   constructor(max) {
     this.queue = new Array(max);
-    this.length = 0;
+    this.top = 0;
     this.max = max;
   }
 
@@ -9,14 +9,14 @@ class Queue {
     if (this.isFull()) {
       throw 'Queue is full';
     }
-    this.queue[this.length] = data;
-    this.length++;
+    this.queue[this.top] = data;
+    this.top++;
     return data;
   }
   dequeue() {
     const data = this.peek();
-    this.length--;
-    for (let i = 0; i < this.length; i++) {
+    this.top--;
+    for (let i = 0; i < this.top; i++) {
       this.queue[i] = this.queue[i + 1];
     }
     return data;
@@ -30,25 +30,12 @@ class Queue {
   }
 
   isFull() {
-    return this.max == this.length;
+    return this.max == this.top;
   }
 
   isEmpty() {
-    return 0 == this.length;
+    return 0 == this.top;
   }
 }
-
-// const stack = new Queue(10);
-// stack.enqueue(1);
-// stack.enqueue(2);
-// stack.enqueue(3);
-
-// console.log(stack.peek());
-// console.log(stack.dequeue());
-// console.log(stack.length);
-// console.log(stack.peek());
-// console.log(stack.dequeue());
-// console.log(stack.length);
-// console.log(stack.peek());
 
 module.exports = Queue;
