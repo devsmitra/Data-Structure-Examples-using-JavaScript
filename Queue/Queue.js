@@ -16,6 +16,9 @@ class Queue {
   dequeue() {
     const data = this.peek();
     this.length--;
+    for (let i = 0; i < this.length; i++) {
+      this.queue[i] = this.queue[i + 1];
+    }
     return data;
   }
 
@@ -23,7 +26,7 @@ class Queue {
     if (this.isEmpty()) {
       throw 'Queue is empty';
     }
-    return this.queue[this.length - 1]
+    return this.queue[0]
   }
 
   isFull() {
@@ -35,15 +38,17 @@ class Queue {
   }
 }
 
-const stack = new Queue(10);
-stack.enqueue(1);
-stack.enqueue(2);
-stack.enqueue(3);
+// const stack = new Queue(10);
+// stack.enqueue(1);
+// stack.enqueue(2);
+// stack.enqueue(3);
 
-console.log(stack.peek());
-console.log(stack.dequeue());
-console.log(stack.peek());
-console.log(stack.dequeue());
-console.log(stack.peek());
+// console.log(stack.peek());
+// console.log(stack.dequeue());
+// console.log(stack.length);
+// console.log(stack.peek());
+// console.log(stack.dequeue());
+// console.log(stack.length);
+// console.log(stack.peek());
 
 module.exports = Queue;
