@@ -15,9 +15,10 @@ class Stack {
   }
 
   peek() {
-    const data = this.peek();
-    this.top--;
-    return data;
+    if (this.isEmpty()) {
+      throw 'Stack is Empty';
+    }
+    return this.stack[this.top - 1];
   }
 
   pop() {
@@ -25,7 +26,7 @@ class Stack {
       throw 'Stack is Empty';
     }
     this.top--;
-    return this.stack[this.top];;
+    return this.stack[this.top];
   }
 
   isFull() {
