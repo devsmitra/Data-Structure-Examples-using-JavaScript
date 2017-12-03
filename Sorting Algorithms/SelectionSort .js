@@ -3,7 +3,7 @@ const sort = (array) => {
     let index = i, // 1
       status = true, // 1
       temp = array[i]; // 1
-    for (let j = i + 1; j < array.length; j++) { // (n-1)n
+    for (let j = i + 1; j < array.length; j++) { // (n-1)(n-1)
       if (temp > array[j]) { // 1
         temp = array[j]; // 1
         index = j; //1
@@ -17,10 +17,10 @@ const sort = (array) => {
       array[i] = temp; // 1
     }
   }
-}
+};
 
 const array = [9, 8, 7, 5, 6, 4, 3, 2, 1];
-sort(array)
+sort(array);
 console.log(array);
 
 

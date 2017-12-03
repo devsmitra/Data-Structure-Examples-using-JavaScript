@@ -5,7 +5,7 @@ const sort = (array) => {
       if (array[j] > array[j + 1]) { // 1
         let temp = array[j]; // 1 
         array[j] = array[j + 1]; // 1
-        array[j] = temp; // 1
+        array[j + 1] = temp; // 1
         status = false; // 1
       }
     }
@@ -13,7 +13,7 @@ const sort = (array) => {
       break; //1
     }
   }
-}
+};
 module.exports = sort;
 
 const array = [9, 8, 7, 5, 6, 4, 3, 2, 1];
